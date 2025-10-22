@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Wrap Example</title>
+  <style>
+    .big_container
+    {
+      display: flex;
+    
+      justify-content: center;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* 👈 this makes items move to new line */
+      background-color: lightgray;
+      width: auto; /* smaller width to force wrapping */
+      padding: 10px;
+    }
+    .box {
+      background-color: cornflowerblue;
+      color: white;
+      font-weight: bold;
+      width: 80px;
+      height: 50px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+ <div class="big_container">
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+ </div>
+</body>
+</html>

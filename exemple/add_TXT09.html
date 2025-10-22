@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student List</title>
+</head>
+<body>
+  <h2>Student List</h2>
+
+
+  <div>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <input type="text" id="classInput" placeholder="Enter class">
+    <input type="number" id="noteInput" placeholder="Enter note">
+    <input type="text" id="numberInput" placeholder="Enter number">
+    <input type="file" id="photo" accept="image/*">
+
+
+    <button id="addBtn">Add Student</button>
+  </div>
+
+  <hr>
+
+ 
+  <div id="studentList"></div>
+
+  <script>
+   
+    let students =  [];
+
+ 
+    function renderStudents() {
+      let container = document.getElementById("studentList");
+      container.innerHTML = ""; 
+      students.forEach(item => 
+      {
+           let div = document.createElement("div");
+           div.innerHTML = `
+            <strong>Name:</strong> ${item.name}<br>
+            <strong>Class:</strong> ${item.class}<br>
+            <strong>Note:</strong> ${item.note}<br>
+            <strong>Numbers:</strong> ${item.numbers}<br>
+            <strong>fpoto:</strong>  <img src="${item.foto1}" width="100"><br>
+          
+           `;
+           container.appendChild(div);
+      });
+      }
+
+
+
+
+
+
+    
+    document.getElementById("addBtn").addEventListener("click", function() {
+      let name = document.getElementById("nameInput").value;
+      let clas = document.getElementById("classInput").value;
+      let note = document.getElementById("noteInput").value;
+      let number = document.getElementById("numberInput").value;
+      let input = document.getElementById('photo').files[0];
+      if (name && clas && note && number) {
+       
+        let newStudent = {
+          name: name,
+          class: clas,
+          note: note ,
+          numbers: number  ,
+          foto1 : URL.createObjectURL(input)
+        };
+        students.push(newStudent);
+      
+        renderStudents();
+
+       
+        document.getElementById("nameInput").value = "";
+        document.getElementById("classInput").value = "";
+        document.getElementById("noteInput").value = "";
+        document.getElementById("numberInput").value = "";
+        document.getElementById('photo').value = "" ;
+      } else 
+      {
+        alert("Please fill all fields!");
+      }
+    });
+
+
+
+
+
+   
+    renderStudents();
+  </script>
+</body>
+</html>

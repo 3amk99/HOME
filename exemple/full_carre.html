@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit List</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      display: flex;
+     
+      gap: 10px;
+      margin: 20px;
+    }
+    .card {
+      background-color: white;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 150px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    img
+    {
+        width: 100px;
+        height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🍎 Fruit List</h2>
+  <div class="container" id="fruitList"></div>
+  <script>
+    // List of people and their favorite fruit
+    const fruits = 
+    [
+      { name: "Alice", fruit: "Apple 🍏" ,photo: "4img_C.jpg"},
+      { name: "Bob", fruit: "Banana 🍌" ,photo: "1img_java.jpg"},
+      { name: "Charlie", fruit: "Cherry 🍒" ,photo: "2img_html.jpg"},
+      { name: "Dina", fruit: "Orange 🍊" ,photo: "3img_css.jpg"}
+    ];
+
+    // Find the container
+    const container = document.getElementById("fruitList");
+
+    // Loop through the list and create squares
+    fruits.forEach(item => 
+    {
+      const div = document.createElement("span");
+      div.classList.add("card");
+      div.innerHTML = `
+                       <img src="${item.photo}" alt="sorry ...">
+                       <br>
+                       <strong>${item.name}</strong><br>${item.fruit}
+                      `;
+      container.appendChild(div);
+    }
+    );
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Country Example</title>
+</head>
+<body>
+  <h2>Add a country to the list</h2>
+
+  <label for="countryInput">Enter a country:</label>
+  <input type="text" id="countryInput" placeholder="e.g. France">
+  <button id="addBtn">Add Country</button>
+
+  <h3>Countries list:</h3>
+  <ul id="countryList"></ul>
+
+  <script>
+   
+    let countries = [];
+
+  
+    let input = document.getElementById("countryInput");
+    let button = document.getElementById("addBtn");
+    let list = document.getElementById("countryList");
+
+   
+    button.addEventListener("click", function() {
+      let countryName = input.value;
+
+      if (countryName) { 
+      
+        countries.push({ name: countryName });
+
+       
+        input.value = "";
+
+    
+        renderList();
+      }
+    });
+
+    function renderList() {
+      list.innerHTML = ""; 
+
+   
+      countries.forEach(function(item) {
+        let li = document.createElement("li");
+        li.textContent = item.name;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

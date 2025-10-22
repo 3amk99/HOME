@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="photo" accept="image/*">
+    <img id="preview" width="150">
+
+<script>
+  let input = document.getElementById('photo');
+  let preview = document.getElementById('preview');
+
+  input.addEventListener('change', function() {
+    let file = input.files[0];
+    if (file) 
+    {
+      preview.src = URL.createObjectURL(file);
+    }
+  });
+</script>
+
+</body>
+</html>

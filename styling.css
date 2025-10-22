@@ -1,0 +1,45 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background: rgb(255, 255, 255);
+  display: grid ;
+  grid-template-rows: auto auto auto ;
+}
+
+.container 
+{
+  grid-row: 2 ;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   margin: 20px;
+   width: auto;
+   align-items: center;
+   justify-content: center;
+}
+
+.card 
+{
+   background-color: white;
+   border: 2px solid #ddd;
+   border-radius: 10px;
+   padding: 15px;
+   width: 150px;
+   text-align: center;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img 
+{
+ width: 150px;
+ height: auto;
+ border-radius: 10px;
+ border: 3px solid #333;
+}
+
+.card .title_A { color: rgb(255, 0, 0); }
+.card .code_A { color: rgb(0, 26, 255); }
+.card .author_A { color: rgb(87, 87, 87); }
+.card .year_A { color: rgb(0, 0, 0); }
+.card .price_A { color: rgb(0, 182, 39); }
+.card .status_A { color: rgb(59, 115, 179); }
