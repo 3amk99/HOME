@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Window Example</title>
+  <style>
+    /* Style for the background overlay */
+    #overlay {
+      display: none; /* Hidden at start */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    }
+
+    /* The popup window itself */
+    #popup {
+      background: white;
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>People List</h2>
+  <button onclick="openPopup()">Add Person</button>
+
+  <div id="result"></div>
+
+  <!-- The hidden window (popup) -->
+  <div id="overlay">
+    <div id="popup">
+      <h3>Enter Info</h3>
+      <input type="text" id="name" placeholder="Name"><br><br>
+      <input type="text" id="family" placeholder="Family Name"><br><br>
+      <button onclick="addPerson()">Add</button>
+      <button onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function addPerson() {
+      let name = document.getElementById("name").value;
+      let family = document.getElementById("family").value;
+
+      if (name && family) {
+        let resultDiv = document.getElementById("result");
+        resultDiv.innerHTML += `<p><strong>${name}</strong> ${family}</p>`;
+        closePopup();
+        document.getElementById("name").value = "";
+        document.getElementById("family").value = "";
+      } else {
+        alert("Please enter both name and family name.");
+      }
+    }
+  </script>
+</body>
+</html>

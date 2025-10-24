@@ -1,4 +1,3 @@
-import { students } from "./ADD.js"; 
 let library = 
   [
     { title: "Ab Rani Ab Fakir", code: 1 , author: "Li" , year: "2021" , price: 22 , status: "not borrowed", photo: "lawla.jpg" , message : "sorry....1"},
@@ -123,37 +122,6 @@ renderlibrary();
 
 
   
-    
-      let input = document.getElementById("code_book");
-      let button = document.getElementById("addBtn");
-      let list = document.getElementById("list_book");
-  
-     
-      button.addEventListener("add", function() {
-        let code_shiffer = input.value;
-  
-        if (code_shiffer) { 
-        
-          library.push({ code: code_shiffer });
-  
-         
-          input.value = "";
-  
-      
-          renderList();
-        }
-      });
-  
-      function renderList() {
-        jami3.innerHTML = ''; 
-  
-     
-        let code_A = document.createElement("p");
-        code_A.classList.add("code_A");
-        code_A.innerHTML = item.code ;
 
-      }
 
-      let allStudents = [...list2, ...list1];
-
-      export { list2, allStudents };
+   

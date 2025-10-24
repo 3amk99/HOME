@@ -1,4 +1,3 @@
-export { list1 };
 let students =  [];
 
       function renderStudents() {
@@ -8,13 +7,14 @@ let students =  [];
         {
              let div = document.createElement("div");
              div.innerHTML = `
-              <strong>Name:</strong> ${item.title}<br>
-              <strong>Class:</strong> ${item.code}<br>
-              <strong>Note:</strong> ${item.autor}<br>
-              <strong>Numbers:</strong> ${item.year}<br>
-               <strong>Numbers:</strong> ${item.price}<br>
-             <strong>Numbers:</strong> ${item.possibility}<br>
-              <strong>fpoto:</strong>  <img src="${item.FOTO22}" width="100"><br>
+              <strong>title:</strong> ${item.title}<br>
+              <strong>code:</strong> ${item.code}<br>
+              <strong>autor:</strong> ${item.autor}<br>
+              <strong>year:</strong> ${item.year}<br>
+              <strong>price:</strong> ${item.price}<br>
+              <strong>possibility:</strong> ${item.possibility}<br>
+              <strong>message:</strong> ${item.message}<br>
+              <strong>photo:</strong>  <img src="${item.photo}" width="100"><br>
 
              `;
              container.appendChild(div);
@@ -31,18 +31,21 @@ let students =  [];
         let year1 = document.getElementById("year").value;
         let price1 = document.getElementById("price").value;
         let possibility1 = document.getElementById("possibility").value;
+        let message1 = document.getElementById("message").value;
         let input = document.getElementById('photo').files[0];
+        
 
-        if (title1 && code1 && autor1 && year1 && price1  &&  possibility1 && input ) {
+        if (title1 && code1 && autor1 && year1 && price1  &&  possibility1 && input && message1 ) {
          
           let newStudent = {
             title: title1,
             code: code1,
             autor: autor1 ,
             year: year1  ,
-            price: price1,
+            price: price1 ,
             possibility: possibility1,
-            FOTO22 : URL.createObjectURL(input)
+            message : message1 ,
+            photo : URL.createObjectURL(input)
           };
 
           students.push(newStudent);
@@ -59,6 +62,7 @@ let students =  [];
           document.getElementById("year").value = "";
           document.getElementById("price").value = "" ;
           document.getElementById("possibility").value = "" ;
+          document.getElementById("message").value = "" ;
           document.getElementById('photo').value = "" ;
 
         } else 
@@ -73,5 +77,4 @@ let students =  [];
   
      
       renderStudents();
-  
   

@@ -5,7 +5,20 @@ let list2 = [
   { name: "Sara", age: 19, number: 15, code: "D4", class: "Art" }
 ];
 
-// combine both lists
+
 let allStudents = [...list2, ...list1];
 
-export { list2, allStudents };
+
+let container = document.getElementById("list2");
+
+allStudents.forEach(student => {
+  let div = document.createElement("div");
+  div.innerHTML = `
+    <strong>Name:</strong> ${student.name} |
+    Age: ${student.age} |
+    Number: ${student.number} |
+    Code: ${student.code} |
+    Class: ${student.class}
+  `;
+  container.appendChild(div);
+});
