@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Color Toggle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 200px;
+      height: 120px;
+      background-color: green;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .on-btn {
+      background-color: #007bff;
+    }
+
+    .off-btn {
+      background-color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="colorCard">GREEN</div>
+
+  <div class="buttons">
+    <button class="on-btn" id="onBtn">ON</button>
+    <button class="off-btn" id="offBtn">OFF</button>
+  </div>
+
+  <script>
+    const card = document.getElementById('colorCard');
+    const onBtn = document.getElementById('onBtn');
+    const offBtn = document.getElementById('offBtn');
+
+    onBtn.addEventListener('click', function() {
+      card.style.backgroundColor = 'red';
+      card.textContent = 'RED';
+    });
+
+    offBtn.addEventListener('click', function() {
+      card.style.backgroundColor = 'green';
+      card.textContent = 'GREEN';
+    });
+  </script>
+
+</body>
+</html>

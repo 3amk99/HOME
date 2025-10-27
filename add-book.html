@@ -48,7 +48,7 @@
       <input type="text" id="code" placeholder="Enter code of book"><br>
 
 
-      <label for="autor">Enter code of book</label>
+      <label for="autor">Enter author of book</label>
       <input type="text" id="autor" placeholder="Enter the autor"><br>
       
 
@@ -87,7 +87,7 @@
         let code1 = document.getElementById("code").value;
         let autor1 = document.getElementById("autor").value;
         let year1 = document.getElementById("year").value;
-        let price1 = document.getElementById("price").value;
+        let price1 = parseFloat(document.getElementById("price").value);
         let possibility1 = document.getElementById("possibility").value;
         let message1 = document.getElementById("message").value;
         let input = document.getElementById('photo').files[0];
@@ -95,17 +95,25 @@
       if (title1 && code1 && autor1 && year1 && price1  &&  possibility1 && input && message1 ) 
       {
         // get old list from localStorage
-        let people = JSON.parse(localStorage.getItem("peopleList")) || [];
-        let newPerson = {
+      
+      
+
+        let reader = new FileReader();
+        reader.onload = function(e) {
+
+          let people = JSON.parse(localStorage.getItem("peopleList")) || [];
+
+          let newPerson = {
           title: title1,
           code: code1,
-          autor: autor1,
+          author: autor1,
           year: year1,
           price: price1,
-          possibility: possibility1,
-          message: message1,
-          photo: URL.createObjectURL(input)
-        };
+          status: possibility1,
+          photo: e.target.result, // Base64 image data
+          message: message1
+          };
+        
         // add new person
         people.push(newPerson);
 
@@ -115,14 +123,14 @@
         // show in current page
         let resultDiv = document.getElementById("result");
         resultDiv.innerHTML += `
-              <strong>title:</strong> ${newPerson.title}<br>
-              <strong>code:</strong> ${newPerson.code}<br>
-              <strong>autor:</strong> ${newPerson.autor}<br>
-              <strong>year:</strong> ${newPerson.year}<br>
-              <strong>price:</strong> ${newPerson.price}<br>
-              <strong>possibility:</strong> ${newPerson.possibility}<br>
-              <strong>message:</strong> ${newPerson.message}<br>
-              <strong>photo:</strong>  <img src="${newPerson.photo}" width="100"><br>
+        <strong>title:</strong> ${newPerson.title}<br>
+        <strong>code:</strong> ${newPerson.code}<br>
+        <strong>author:</strong> ${newPerson.author}<br>
+        <strong>year:</strong> ${newPerson.year}<br>
+        <strong>price:</strong> ${newPerson.price}<br>
+        <strong>status:</strong> ${newPerson.status}<br>
+        <strong>message:</strong> ${newPerson.message}<br>
+        <strong>photo:</strong>  <img src="${newPerson.photo}" width="100"><br>
              `;
 
         // close popup
@@ -139,6 +147,11 @@
           document.getElementById('photo').value = "" ;
           
       } 
+
+      reader.readAsDataURL(input);
+
+
+      }
       else
       {
         alert("Please enter both name and family name.");

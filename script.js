@@ -7,10 +7,14 @@ let library =
   
 let jami3 = document.getElementById("list");
 
-function renderlibrary() {
+let people = JSON.parse(localStorage.getItem("peopleList")) || [];
+
+library.push(...people);
+
+function renderlibrary(list = library) {
   jami3.innerHTML = '';
 
-  library.forEach((item,index) => {
+  list.forEach((item,index) => {
     let ibn = document.createElement("div");
     ibn.classList.add("card");
 
@@ -52,6 +56,11 @@ function renderlibrary() {
       updateFooter();
     });
 
+
+
+
+
+
     ibn.appendChild(tswira);
     ibn.appendChild(title_A);
     ibn.appendChild(code_A);
@@ -67,6 +76,25 @@ function renderlibrary() {
 
 
 
+
+let searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", function() 
+{
+  let searchText = searchBar.value.toLowerCase();
+
+  let filtered = library.filter(book =>
+    book.title.toLowerCase().includes(searchText) ||
+    String(book.code).toLowerCase().includes(searchText)
+
+  );
+
+  renderlibrary(filtered);
+});
+
+
+
+
+
 function updateFooter() {
   let foter = document.getElementById("foter_number");
   foter.innerHTML = '';
@@ -79,9 +107,9 @@ function updateFooter() {
     }
   });
 
-  let total_price = library.reduce((sum, item) => sum + item.price, 0);
-  let Average = (total_price / library.length) ;
-  let Expensive = library.reduce((a,b) => a.price > b.price ? a : b);
+  let total_price = library.reduce((sum, item) => sum + Number(item.price), 0);
+  let Average = (total_price / library.length).toFixed(2);
+  let Expensive = library.reduce((a,b) => Number(a.price) > Number(b.price) ? a : b);
 
 
   let number_available =  document.createElement("p");
@@ -112,10 +140,15 @@ function updateFooter() {
 }
 
 
+function clearAllBooks() 
+{
+  localStorage.removeItem("peopleList");
+  location.reload(); // Refresh page
+}
 
 
 
-updateFooter()
+updateFooter();
 renderlibrary();
 
 
