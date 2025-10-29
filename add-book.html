@@ -18,7 +18,7 @@
     /* The popup window itself */
     #popup {
       background: white;
-      width: 300px;
+      width: 600px;
       margin: 100px auto;
       padding: 20px;
       border-radius: 10px;
@@ -37,34 +37,34 @@
   <div id="overlay">
     <div id="popup">
       <h3>Enter Info</h3>
-      <label for="photo">Enter the photo</label>
+      <label for="photo">Enter the photo</label><br>
       <input type="file" id="photo" accept="image/*"><br>
 
       <label for="title">Enter the title</label>
-      <input type="text" id="title" placeholder="Enter the title"><br>
+      <input type="text" id="title"><br>
 
 
       <label for="code">Enter code of book</label>
-      <input type="text" id="code" placeholder="Enter code of book"><br>
+      <input type="text" id="code"><br>
 
 
       <label for="autor">Enter author of book</label>
-      <input type="text" id="autor" placeholder="Enter the autor"><br>
+      <input type="text" id="autor"><br>
       
 
       <label for="year">Enter the year of publication</label>
-      <input type="text" id="year" placeholder="Enter the year of publication"><br>
+      <input type="text" id="year"><br>
 
 
-      <label for="price">Enter the year of price</label>
-      <input type="text" id="price" placeholder="Enter the year of price"><br>
+      <label for="price">Enter the price</label>
+      <input type="text" id="price"><br>
 
 
-      <label for="possibility">Enter the year of price</label>
-      <input type="text" id="possibility" placeholder="Enter if it is borrowed"><br>
+      <label for="possibility">Enter if the book is on taking</label>
+      <input type="text" id="possibility"><br>
 
       <label for="message">Enter the year of message</label>
-      <input type="text" id="message" placeholder="Enter if it is message"><br>
+      <input type="text" id="message"><br>
 
       <button onclick="addPerson()">Add</button>
       <button onclick="closePopup()">Cancel</button>

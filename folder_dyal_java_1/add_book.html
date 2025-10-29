@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .boss_inputs
+    {
+        width: 600px ;
+        height: 300px ;
+        background: rgb(0, 157, 255);
+        box-shadow: 6px 7px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        flex-direction: column; /* Arranges items vertically */
+        justify-content: center;
+    }
+    </style>
+</head>
+<body> 
+    <div class="boss_inputs">
+        <label for="name"> Enter the Name : </label>
+        <input type="text" id="name">
+
+        <label for="last_name"> Enter the last name : </label>
+        <input type="text" id="last_name">
+
+        <label for="class"> Enter the class : </label>
+        <input type="text" id="class">
+
+        <label for="photo"> Enter the photo : </label>
+        <input type="file" id="photo" accept="image/*">
+    </div>
+</body>
+</html>
