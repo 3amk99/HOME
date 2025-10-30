@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .big_boss
+        {
+            width: 500px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgb(0, 132, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="big_boss">
+        <label for="name"> Enter the Name : </label>
+        <input type="text" id="name">
+
+        <label for="last_name"> Enter the last name : </label>
+        <input type="text" id="last_name">
+
+        <label for="classe"> Enter the class : </label>
+        <input type="text" id="classe">
+
+        <label for="photo"> Enter the photo : </label>
+        <input type="file" id="photo" accept="image/*">
+
+        <button onclick="add_function()">Add</button>
+        <button onclick="Cancel_function()">Cancel</button>
+    </div>
+    <div id="result"></div>
+    <div id="qqq"></div>
+    <script>
+     function add_function()
+     {
+        let name_1 = document.getElementById("name").value;
+        let last_name_1 = document.getElementById("last_name").value;
+        let classe_1 = document.getElementById("classe").value;
+        let photo_1 = document.getElementById("photo").files[0];
+
+        if(name_1 && last_name_1 && classe_1 && photo_1 )
+        {
+        let frot = new FileReader() ;
+        frot.onload = function(e)
+        {
+        let owner = JSON.parse(localStorage.getItem("universe")) || [] ;
+        let new_bebliotica =
+        {
+            name : name_1 ,
+            last_name : last_name_1 ,
+            classe : classe_1 ,
+            photo : e.target.result
+        };
+        owner.push(new_bebliotica);
+        localStorage.setItem("universe", JSON.stringify(owner) );
+        
+        
+        let result_1 = document.getElementById("result");
+        result_1.innerHTML += `
+        ${new_bebliotica.name}<br>
+        ${new_bebliotica.last_name}<br>
+        ${new_bebliotica.classe}<br>
+        <img src ="${new_bebliotica.photo}" width ="100" ><br>
+        `;
+        
+        }
+        frot.readAsDataURL(photo_1);
+
+    
+    }
+    else
+    {
+       alert("404");
+    }
+  
+     }
+    </script>
+</body>
+</html>

@@ -26,11 +26,70 @@
         <label for="last_name"> Enter the last name : </label>
         <input type="text" id="last_name">
 
-        <label for="class"> Enter the class : </label>
-        <input type="text" id="class">
+        <label for="classe"> Enter the class : </label>
+        <input type="text" id="classe">
 
         <label for="photo"> Enter the photo : </label>
         <input type="file" id="photo" accept="image/*">
+
+        <button onclick="button_function()">add</button>
+        <button onclick="Cancel_function()">Cancel</button>
     </div>
+    <div id="result"></div>
+    <script>
+       function button_function()
+       {
+         let name_1 = document.getElementById("name").value;
+         let last_name_1 = document.getElementById("last_name").value;
+         let classe_1 = document.getElementById("classe").value;
+         let photo_1 = document.getElementById('photo').files[0];
+         
+         if(name_1 && last_name_1 && classe_1 && photo_1 )
+         {
+            let reader = new FileReader ;
+            reader.onload = function(e)
+            {
+                let collector = JSON.parse(localStorage.getItem("taker")) || [] ;
+
+                let new_library =
+                {
+                    name : name_1 ,
+                    last_name : last_name_1 ,
+                    classe : classe_1 ,
+                    photo : e.target.result 
+                };
+            
+            collector.push(new_library);
+
+            localStorage.setItem("taker" , JSON.stringify(collector));
+            
+
+            let div_result = document.getElementById("result");
+            div_result.innerHTML += ` 
+            <strong>Name</strong> ${new_library.name} <br>
+            <strong>last name</strong> ${new_library.last_name} <br>
+            <strong>class</strong> ${new_library.classe} <br>
+            </strong>  <img src="${new_library.photo}" width="100"><br>
+            `;
+
+            Cancel_function();
+
+             name_1 = document.getElementById("name").value = "";
+             last_name_1 = document.getElementById("last_name").value = "";
+             classe_1 = document.getElementById("classe").value = "";
+             photo_1 = document.getElementById('photo').value = "";
+
+            }
+
+            reader.readAsDataURL(photo_1);
+
+         }
+         else
+         {
+            alert("error 404");
+         }
+       }
+      
+    </script>
 </body>
 </html>

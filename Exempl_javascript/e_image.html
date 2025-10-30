@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Example 2: Show image</h3>
+  <input type="file" id="fileInput" accept="image/*">
+  <img id="preview" width="150">
+
+  <script>
+    let input = document.getElementById("fileInput");
+    let img = document.getElementById("preview");
+
+    input.addEventListener("change", function() {
+      let reader = new FileReader();
+      let file = input.files[0];
+
+      reader.onload = function(e) {
+        img.src = e.target.result; // show the image
+      };
+
+      reader.readAsDataURL(file); // read as base64 image data
+    });
+  </script>
+</body>
+</html>

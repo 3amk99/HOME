@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Example 1: Read text file</h3>
+  <input type="file" id="fileInput">
+  <pre id="output"></pre>
+
+  <script>
+    let input = document.getElementById("fileInput");
+    let output = document.getElementById("output");
+
+    input.addEventListener("change", function() {
+      let reader = new FileReader();
+      let file = input.files[0];
+
+      // 'e' gives access to file content
+      reader.onload = function(e) {
+        output.textContent = e.target.result;
+      };
+
+      reader.readAsText(file); // start reading the file
+    });
+  </script>
+</body>
+</html>
