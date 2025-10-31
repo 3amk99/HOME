@@ -29,6 +29,13 @@
         <label for="classe"> Enter the class : </label>
         <input type="text" id="classe">
 
+        <label for="qualifide"> Enter if he is qualified : </label>
+        <input type="radio" name="choice" value="qualifeid"> qualifeid 
+        <input type="radio" name="choice" value="not qualifeid"> not qualifeid
+
+        <label for="tax"> enter the tax : </label>
+        <input type="text" id="tax">
+
         <label for="photo"> Enter the photo : </label>
         <input type="file" id="photo" accept="image/*">
 
@@ -43,8 +50,13 @@
          let last_name_1 = document.getElementById("last_name").value;
          let classe_1 = document.getElementById("classe").value;
          let photo_1 = document.getElementById('photo').files[0];
-         
-         if(name_1 && last_name_1 && classe_1 && photo_1 )
+         let Choose = document.querySelector('input[name="choice"]:checked');
+         let tax_1 = document.getElementById("tax").value;
+         let anwser = Choose ? Choose.value : "nothing added" ;
+        
+
+
+         if(name_1 && last_name_1 && classe_1 && photo_1 && anwser && tax_1 )
          {
             let reader = new FileReader ;
             reader.onload = function(e)
@@ -56,7 +68,9 @@
                     name : name_1 ,
                     last_name : last_name_1 ,
                     classe : classe_1 ,
-                    photo : e.target.result 
+                    photo : e.target.result ,
+                    possibility : anwser ,
+                    Monney : tax_1 
                 };
             
             collector.push(new_library);
@@ -69,7 +83,10 @@
             <strong>Name</strong> ${new_library.name} <br>
             <strong>last name</strong> ${new_library.last_name} <br>
             <strong>class</strong> ${new_library.classe} <br>
+            <strong>possibilty</strong> ${new_library.possibility} <br>
+            <strong>tax</strong> ${new_library.Monney} <br>
             </strong>  <img src="${new_library.photo}" width="100"><br>
+            
             `;
 
             Cancel_function();
@@ -78,6 +95,9 @@
              last_name_1 = document.getElementById("last_name").value = "";
              classe_1 = document.getElementById("classe").value = "";
              photo_1 = document.getElementById('photo').value = "";
+             tax_1 =  document.getElementById("tax").value = "";
+             let cleare = document.querySelector('input[name="choice"]:checked');
+             if(cleare) cleare.checked = false ;
 
             }
 

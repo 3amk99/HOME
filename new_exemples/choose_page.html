@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yes/No Example</title>
+</head>
+<body>
+  <h3>Do you like JavaScript?</h3>
+
+  <!-- Two radio buttons with different names -->
+  <input type="radio" name="q1" value="yes"> Yes
+  <input type="radio" name="q2" value="no"> No
+
+  <br><br>
+  <button onclick="saveChoice()">Save</button>
+
+  <h3>Your choice:</h3>
+  <p id="output"></p>
+
+  <script>
+    function saveChoice() {
+      let yesRadio = document.querySelector('input[name="q1"]:checked');
+      let noRadio = document.querySelector('input[name="q2"]:checked');
+
+      let answer = "";
+
+      if (yesRadio) {
+        answer = yesRadio.value; // "yes"
+      } else if (noRadio) {
+        answer = noRadio.value; // "no"
+      } else {
+        answer = "No choice selected!";
+      }
+
+      // Create an object to store it
+      let result = { answer: answer };
+
+      // Show the object content on screen
+      document.getElementById("output").textContent = "Answer: " + result.answer;
+    }
+  </script>
+</body>
+</html>
