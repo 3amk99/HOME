@@ -7,7 +7,7 @@ let library =
   
 let jami3 = document.getElementById("list");
 
-let people = JSON.parse(localStorage.getItem("peopleList")) || [];
+let people = JSON.parse(localStorage.getItem("peopleytsdgyfsgygfyzgetyzfetdfzeydfzyefdztfList")) || [];
 
 library.push(...people);
 
@@ -127,9 +127,7 @@ searchBar.addEventListener("input", function()
 {
   let searchText = searchBar.value.toLowerCase();
 
-  let filtered = library.filter(book =>
-    book.title.toLowerCase().includes(searchText) ||
-    String(book.code).toLowerCase().includes(searchText)
+  let filtered = library.filter(book =>book.title.toLowerCase().includes(searchText) ||String(book.code).toLowerCase().includes(searchText)
 
   );
 

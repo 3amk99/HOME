@@ -16,10 +16,15 @@
 }
 .container
 {
-   background: red;
+   background: rgb(255, 255, 255);
    width: 200px ;
    height: 500px ;
    display: grid;
    grid-template-columns: 200px ;
    grid-template-rows: repeat(6 , auto) ;
+}
+.search_bar_1
+{
+    background: red;
+    width: 100px ;
 }
