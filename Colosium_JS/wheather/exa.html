@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Throw Example</title>
+</head>
+<body>
+  <h1>Throw Example</h1>
+  <button id="btnString">Throw String</button>
+  <button id="btnNumber">Throw Number</button>
+  <button id="btnBoolean">Throw Boolean</button>
+  <button id="btnObject">Throw Object</button>
+
+  <div id="output"></div>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function showError(value) {
+      try {
+        throw value; // Throw the value
+      } catch (error) {
+        output.innerText = "Caught error: " + (typeof error === "object" ? JSON.stringify(error) : error);
+      }
+    }
+
+    document.getElementById("btnString").addEventListener("click", () => showError("Something went wrong"));
+    document.getElementById("btnNumber").addEventListener("click", () => showError(404));
+    document.getElementById("btnBoolean").addEventListener("click", () => showError(true));
+    document.getElementById("btnObject").addEventListener("click", () => showError({ message: "Bad input" }));
+  </script>
+</body>
+</html>

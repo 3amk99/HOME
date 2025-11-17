@@ -6,7 +6,7 @@ function beblio_fun(list = beblio)
  let container = document.getElementById("result");
  container.innerHTML = ``;
  list.forEach((item,index) => function()
- {
+ {uyg
  let ibn = document.createElement("p");
  ibn.innerHTML = ``;
  let name_1 = document.createElement("p");

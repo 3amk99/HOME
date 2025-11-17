@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="image_city.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container">
+    <input  type="text" id="cityInput" placeholder="Enter city name">
+    <button id="searchBtn">Search</button>
+    <div    id="result_photo"></div>
+
+    <div class="Weather">
+      <div    id="result"></div>
+      <h2     id="cityName"></h2>
+      <p      id="temperature"></p>
+      <img    id="icon" src="" alt="weather icon">
+
+      <div class="Weather_fake" >
+        <div    id="status"></div>
+        <p      id="description"></p>
+        <p      id="humidity"></p>
+        <p      id="wind"></p>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+
+  <script>
+
+
+
+    const searchBtn = document.getElementById('searchBtn');
+    const cityInput = document.getElementById('cityInput');
+
+
+
+
+    const status = document.getElementById('status');
+    const cityName = document.getElementById('cityName');
+    const temperature = document.getElementById('temperature');
+    const description = document.getElementById('description');
+    const icon = document.getElementById('icon');
+    const humidity = document.getElementById('humidity');
+    const wind = document.getElementById('wind');
+
+
+    const resultDiv = document.getElementById('result');
+    const result = document.getElementById("result_photo");
+
+    
+   
+
+    searchBtn.addEventListener('click', async () => 
+    {
+
+
+       const city = cityInput.value.trim();
+      if (city === "") 
+      {
+        status.innerText = "Please enter a city name.";
+        return;
+      }
+
+      status.innerText = "Loading...";
+
+        try 
+        {
+          const response_time = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=df2f45836d87daaca0cbebee1eef0865`
+          );
+
+          if (!response_time.ok)
+          {
+            throw new Error("City not found");
+          }
+
+          const data_time = await response_time.json();
+
+          const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+          const localTime = new Date(utc + 1000 * data_time.timezone);
+
+          resultDiv.textContent =
+            ` ${data_time.name}: ` +
+            localTime.toLocaleTimeString('en-US', 
+            { hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit' 
+            });
+        }
+        catch (error) 
+        {
+          resultDiv.textContent = "City not found or error loading data.";
+        }
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+ const url = `https://api.unsplash.com/search/photos?query=${city}&client_id=Y33eAHImIgZqRJOohmyk5mmMLvuaiIy17pvCBb9cLPE&per_page=1`;
+      try 
+      {
+        const response_photo = await fetch(url);
+        const data_photo = await response_photo.json();
+        if (data_photo.results.length > 0)
+        {
+          const imgUrl = data_photo.results[0].urls.regular;
+          result.innerHTML = `<img src="${imgUrl}" alt="${city}" style="max-width:700px;">`;
+        } 
+
+        else 
+        {
+          result.innerHTML = "No image found!";
+        }
+      } 
+      catch (error) 
+      {
+        resultDiv.innerHTML = "Error fetching image!";
+        console.error(error);
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      const url_weather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=df2f45836d87daaca0cbebee1eef0865`;
+
+      fetch(url_weather)
+        .then(response_weather => 
+        {
+          if (!response_weather.ok) 
+          {
+            throw new Error("City not found");
+          }
+          return response_weather.json();
+        })
+
+        .then(data_weather => 
+        {
+          document.getElementById("result").style.display = "block";
+          document.querySelector(".Weather_fake").style.display = "block";
+          document.getElementById("icon").style.display = "block";
+          status.innerText = "";
+          cityName.innerText = `${data_weather.name}, ${data_weather.sys.country}`;
+          temperature.innerText = `${data_weather.main.temp} °C`;
+          description.innerText = `Weather: ${data_weather.weather[0].description}`;
+          icon.src = `https://openweathermap.org/img/wn/${data_weather.weather[0].icon}@2x.png`;
+          icon.alt = data_weather.weather[0].description;
+          humidity.innerText = `Humidity: ${data_weather.main.humidity}%`;
+          wind.innerText = `Wind Speed: ${data_weather.wind.speed} m/s`;
+        })
+
+        .catch(error => 
+        {
+          status.innerText = error.message;
+          cityName.innerText = "";
+          temperature.innerText = "";
+          description.innerText = "";
+          icon.src = "";
+          humidity.innerText = "";
+          wind.innerText = "";
+        });
+
+
+
+
+
+
+
+     
+    });
+  </script>
+
+</body>
+</html>

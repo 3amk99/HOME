@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="boss">
+        <label for="name">name</label>
+        <input type="text" id="name">
+
+        <label for="price">price</label>
+        <input type="text" id="price">
+
+        <label for="photo"></label>
+        <input type="file" id="photo" accept="image/*">
+        
+        <label for="possible"></label>
+        <input type="radio" name="Q1" value="kayn"  > kayn
+        <input type="radio" name="Q1" value="makaynch"  > makaynch
+
+        <button onclick="fun_add_info()">Add</button>
+        <button onclick="fun_cancel_info()">Cancel</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        function fun_add_info()
+        {
+            let foto = document.getElementById('photo').files[0];
+            let possibility = document.querySelector('input[name="Q1"]:checked');
+            let name_1 = document.getElementById("name").value;
+            let price_1 = document.getElementById("price").value;
+
+            let answer = possibility ? possibility.value : "nothing" ;
+            if( foto && possibility && name_1 && price_1 && answer )
+            {
+               let scanner = new FileReader ;
+               scanner.onload = function(e)
+               {
+                 let reception = JSON.parse(localStorage.getItem("gohst")) || [] ;
+                 let taker = {
+                 name : name_1 ,
+                 price : price_1 ,
+                 possibilit : answer ,
+                 photo : e.target.result 
+                 };
+                 reception.push(taker);
+                 localStorage.setItem("gohst",JSON.stringify(reception));
+                 let result_1 = document.getElementById("result");
+                 result_1.innerHTML += `
+                 ${taker.name}<br>
+                 ${taker.price}<br>
+                 ${taker.possibilit}<br>
+                 <img src="${taker.photo}" width="100" alt="sorry">
+                `;
+                
+               }
+               
+               scanner.readAsDataURL(foto);
+
+            }
+            else
+            {
+                alert("Error 404");
+            }
+        }
+        function fun_cancel_info()
+                {
+                    let possibility = document.querySelector('input[name="Q1"]:checked');
+                    if(possibility) possibility.checked = false ;
+                    let foto = document.getElementById('photo').value = '' ;
+                    let name =  document.getElementById("name").value = '' ;
+                    let price_1 =  document.getElementById("price").value = '' ;
+                }
+    </script>
+</body>
+</html>

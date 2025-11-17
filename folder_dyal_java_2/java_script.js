@@ -65,6 +65,7 @@ function function_bebeliotica()
         card.appendChild(butona);
         card.appendChild(butona_ON);
         card.appendChild(butona_OFF);
+        card.appendChild(photo_1);
         el_owner.appendChild(card);
     });
     
@@ -84,7 +85,7 @@ function taman()
     tamann_1.innerHTML = ``;
     let max_price = bebeliotica.reduce((a,b) => Number(a.price) > Number(b.price) ? a : b)
     let total = bebeliotica.reduce((sum , item ) => sum + Number(item.price) , 0 )
-    let average = Number(total / bebeliotica.length).toFixed(2);
+    let average = (total / bebeliotica.length).toFixed(2);
     let count_kayn = 0 ;
     bebeliotica.forEach(item => {
         if( item.possibility === "makaynch")

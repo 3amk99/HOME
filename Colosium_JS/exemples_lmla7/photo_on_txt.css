@@ -1,0 +1,38 @@
+.container 
+{
+  position: relative;      /* parent becomes relative */
+
+  /* The image covers the full page */
+  background-image: url("Coffee beans.jpg");
+  background-size: 100%;        /* image fills the page */
+  background-position: center;   /* centered */
+  background-repeat: no-repeat;  /* no repeat */
+
+  height: 100vh; /* full viewport height */
+}
+
+
+
+#search
+{
+    position: absolute;
+    top : 10px;
+}
+
+.text 
+{
+  position: absolute;     /* place text ON TOP */
+  top: 50%;               /* center vertically */
+  left: 50%;              /* center horizontally */
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+
+
+   /* New part for blurred square */
+  background: rgba(0, 0, 0, 0.3); /* semi-transparent background */
+  padding: 20px 40px;             /* space around text */
+  backdrop-filter: blur(8px);      /* the blur effect */
+  
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .photo-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* ensures blur doesn't spill outside */
+}
+
+.photo-container img {
+  display: block;
+  width: 300px;
+  height: auto;
+  position: relative; /* keep it above pseudo-element */
+  z-index: 1;
+}
+
+.photo-container::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('pppppp.jpg') center/cover no-repeat;
+  filter: blur(20px); /* controls how blurry the edges are */
+  mask-image: radial-gradient(circle, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%);
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,0) 70%, rgba(0,0,0,1) 100%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+  pointer-events: none; /* allows clicking the image normally */
+}
+
+    </style>
+</head>
+<body>
+<div class="photo-container">
+  <img src="pppppp.jpg" alt="Photo">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="boss">
+     <label for="name">name</label>
+     <input type="text" id="name">
+
+     <label for="Author">Author</label>
+     <input type="text" id="Author">
+
+     <label for="Year">Year</label>
+     <input type="text" id="Year">
+
+     <label for="price">price</label>
+     <input type="text" id="price">
+
+     <label for="Possibility"></label>
+     <input type="radio" name="Q1" value="KAYN" >KAYN
+     <input type="radio" name="Q1" value="MAKAYNCH" >MAKAYNCH
+
+     <label for="photo"></label>
+     <input type="file" id="photo" accept="image/*">
+
+     <button onclick="fun_add()">ADD</button>
+     <button onclick="fun_cancel()">cancel</button>
+    </div>
+    <div id="resultee"></div>
+    <script>
+        function fun_add()
+        {
+            let name_1 = document.getElementById("name").value;
+            let Author_1 = document.getElementById("Author").value;
+            let Year_1 = document.getElementById("Year").value;
+            let price_1 = document.getElementById("price").value;
+            let CHose = document.querySelector('input[name="Q1"]:checked');
+            let answer = CHose ? CHose.value : "sorry" ;
+            let photo_1 = document.getElementById("photo").files[0];
+            if( name_1 && Author_1 && Year_1 && price_1 && answer && photo_1 )
+            {
+                let scanner = new FileReader() ;
+                scanner.onload = function(e)
+                {
+                    let adder = JSON.parse(localStorage.getItem("gohst")) || [] ; 
+                    let bebelio = 
+                    {
+                       name : name_1 ,
+                       Author : Author_1 ,
+                       Year : Year_1 ,
+                       Price : price_1 ,
+                       Possibility : answer ,
+                       Photo : e.target.result 
+                    }
+                    adder.push(bebelio);
+                    localStorage.setItem("gohst",JSON.stringify(adder));
+                    let result = document.getElementById("resultee");
+                    result.innerHTML += 
+                    `
+                    ${bebelio.name}<br>
+                    ${bebelio.Author}<br>
+                    ${bebelio.Year}<br>
+                    ${bebelio.Price}<br>
+                    ${bebelio.Possibility}<br>
+                    <img src="${bebelio.Photo}" width="100"><br>
+                    `;
+                }
+                scanner.readAsDataURL(photo_1);
+            }
+            else
+            {
+                alert("404");
+            }
+        }
+        function fun_cancel()
+        {
+             name_1 = document.getElementById("name").value = "";
+             Author_1 = document.getElementById("Author").value = "";
+             Year_1 = document.getElementById("Year").value = "";
+             price_1 = document.getElementById("price").value = "";
+             CHose = document.querySelector('input=[name="Q1"]:checked');
+             if(CHose) CHose.checked = false ;
+             photo_1 = document.getElementById("photo").value = "";
+        }
+    </script>
+</body>
+</html>

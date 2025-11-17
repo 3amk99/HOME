@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>World Time App</title>
+  </head>
+  <body>
+    <h1>World Time Finder</h1>
+    <input id="cityInput" type="text" placeholder="Enter a city (e.g. Riyadh, Berlin, Tangier)">
+    <button id="searchBtn">Show Time</button>
+    <p id="result"></p>
+
+    <script>
+      const input = document.getElementById("cityInput");
+      const button = document.getElementById("searchBtn");
+      const result = document.getElementById("result");
+
+      button.addEventListener("click", async () => {
+        const city = input.value.trim();
+        const APIKey = "df2f45836d87daaca0cbebee1eef0865";
+
+        if (!city) 
+        {
+          result.textContent = "Please enter a city name.";
+          return;
+        }
+
+        result.textContent = "Loading...";
+
+        try 
+        {
+          const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${APIKey}`
+          );
+
+          if (!response.ok)
+          {
+            throw new Error("City not found");
+          }
+
+          const data = await response.json();
+
+          // Calculate local time using timezone offset
+          const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+          const localTime = new Date(utc + 1000 * data.timezone);
+
+          result.textContent =
+            `Current time in ${data.name}: ` +
+            localTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+        catch (error) 
+        {
+          result.textContent = "City not found or error loading data.";
+        }
+      });
+    </script>
+  </body>
+</html>

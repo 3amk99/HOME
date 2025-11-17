@@ -1,0 +1,105 @@
+body
+{
+    font-family: sans-serif;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    margin: 0 ;
+    padding: 50px ;
+}
+.container
+{
+    position: relative;
+    display: block;
+    text-align: center;
+}
+.Weather
+{
+    position: absolute;
+    top: 40px ;
+
+    left: 50%;                   /* move box to the middle */
+    transform: translateX(-50%); /* pull it back half of its width */
+    margin-top: 100px ;
+    display: grid;
+    width: 700px; 
+    grid-template-columns: repeat(3, 1fr);  
+    height: 450px ;
+    grid-template-rows:  repeat(3, 1fr) ;
+    gap: 10px;
+}
+
+.Weather #result
+{
+    display: none; /* hidden at start */
+    grid-column: 3 ; grid-row: 1 ;
+    background: rgba(0, 0, 0, 0.1); /* semi-transparent background */
+    padding: 0px 0px;                /* space around text           */
+    backdrop-filter: blur(8px);      /* the blur effect          */
+    padding-top: 40px ;
+    border-radius: 20px ;
+    display: none; /* hidden at start */
+}
+.Weather #temperature
+{
+    grid-column: 1 ; grid-row: 1 ;
+    font-size: 50px;
+    margin-top: 0px ;
+}
+.Weather #cityName
+{
+    grid-column: 1 ; grid-row: 1 ;
+    margin-top: 70px ;
+}
+.Weather #description
+{
+    grid-column: 1 ; grid-row: 3 ;
+    color: white;
+    font-weight: bold;
+}
+.Weather #humidity
+{
+    grid-column: 1 ; grid-row: 3 ;
+    margin-top: 20px ;
+    color: white;
+    font-weight: bold;
+}
+.Weather #wind
+{
+    grid-column: 1 ; grid-row: 3 ;
+    margin-top: 30px ;
+    color: white;
+    font-weight: bold;
+}
+.Weather #icon
+{
+    display: none; /* hidden at start */
+    grid-column: 1 ; grid-row: 2 ;
+    background: rgba(0, 0, 0, 0.1); /* semi-transparent background */
+    padding: 0px 0px;                /* space around text           */
+    backdrop-filter: blur(8px);      /* the blur effect          */
+    padding-top: 40px ;
+    border-radius: 20px ;
+    display: none; /* hidden at start */
+}
+.Weather .Weather_fake
+{
+    display: none; /* hidden at start */
+    grid-column: 1 ; grid-row: 3 ;
+    background: rgba(0, 0, 0, 0.1); /* semi-transparent background */
+    padding: 0px 0px;                /* space around text           */
+    backdrop-filter: blur(8px);      /* the blur effect          */
+    padding-top: 40px ;
+    border-radius: 20px ;
+    display: none; /* hidden at start */
+}
+#cityInput
+{
+    height: 30px ;
+    width: 250px ;
+    margin-bottom: 100px ;
+}
+#searchBtn
+{
+    height: 36px ;
+    width: 100px ;
+}
