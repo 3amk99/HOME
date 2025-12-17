@@ -1,4 +1,10 @@
 let beblio = [] ;
+
+
+
+
+
+
 let collection = JSON.parse(localStorage.getItem("gohst")) || [];
 beblio.push(...collection);
 function beblio_fun(list = beblio)
