@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Search</title>
+</head>
+<body>
+  <h2>Search Student</h2>
+  <input type="text" id="searchBar" placeholder="Search by name or class">
+  <div id="result"></div>
+
+  <script>
+  
+  let students = [
+    { name: "Ali", class: "A" , photo: "1.jpg"  },
+    { name: "Sara", class: "B" , photo: "2.jpg"},
+    { name: "Omar", class: "A" , photo: "3.jpg"},
+    { name: "Hassan", class: "C" , photo: "4.jpg"}
+  ];
+  
+  let searchBar = document.getElementById("searchBar");
+  let resultDiv = document.getElementById("result");
+  
+  // Function to show students
+  function displayStudents(list) {
+    resultDiv.innerHTML = ""; // Clear old results
+    if (list.length === 0) {
+      resultDiv.innerHTML = "<p>No students found.</p>";
+      return;
+    }
+  
+    list.forEach(student => {
+      resultDiv.innerHTML += `<p><strong>${student.name}</strong> - Class ${student.class} - <strong>photo:</strong>  <img src="${student.photo}" width="100"><br>`;
+    });
+  }
+  
+  // First show all students
+  displayStudents(students);
+  
+  // Add event when typing
+  searchBar.addEventListener("input", function() {
+    let searchText = searchBar.value.toLowerCase();
+  
+    let filtered = students.filter(s => 
+      s.name.toLowerCase().includes(searchText) ||
+      s.class.toLowerCase().includes(searchText)
+    );
+  
+    displayStudents(filtered);
+  });
+
+  </script>
+</body>
+</html>
