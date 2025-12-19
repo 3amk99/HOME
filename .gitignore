@@ -1,5 +1,6 @@
 node_modules/
 .env
+<<<<<<< HEAD
 *.log
 node_modules/
 .env
@@ -10,3 +11,10 @@ new_exemples/search.html echo new_exemples/receive_storage.html
 folder_dyal_java_1
 new_exemples/choose.html
 new_exemples/choose.html
+=======
+
+exemple/fruit_js.html
+ exemple/fruit_js.html
+>>>>>>> WW0
+
+>>>>>>> da9ed80b3fd621fe2cc240f4be19ee41426b9437
