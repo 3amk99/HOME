@@ -9,5 +9,10 @@ export/list2.js
 new_exemples/search.html echo new_exemples/receive_storage.html
 folder_dyal_java_1
 script.js
+<<<<<<< HEAD
  exemple/3img_css.jpg
 exemple/fruit_js.html
+=======
+exemple/fruit_js.html
+ exemple/fruit_js.html
+>>>>>>> WW0
