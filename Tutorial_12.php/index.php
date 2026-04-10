@@ -8,11 +8,6 @@ if(isset($_POST['create_category']))
     $categories->create() ;
 }
 
-
-
-
-
-
 if(isset($_POST['button_send']))
 {
    $article->title = $_POST['title'];
@@ -24,7 +19,7 @@ if(isset($_POST['button_send']))
         $photo_name = time() . "_" . preg_replace("/[^a-zA-Z0-9.]/", "_", $_FILES['photo']['name']) ;
         $temporary_name = $_FILES['photo']['tmp_name'] ;
 
-        $upload = "upload/" ;
+        $upload = "upload/" ; 
 
         $Normal_path = $upload . basename($photo_name);
         
@@ -60,7 +55,7 @@ if(isset($_POST['button_send']))
     <h1>add category</h1>
     <input type="text" name="cetegory_name">
     <button type="submit" name="create_category">
-        Send
+        Send 
     </button>
    </form>
 
@@ -88,7 +83,11 @@ if(isset($_POST['button_send']))
         </button>
     </form>
 
-    
+
+
+
+
+
     <button>
         <a href="show.php">show.php</a>
     </button>
