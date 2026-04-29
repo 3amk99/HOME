@@ -89,5 +89,13 @@ class Article
                                ]);
     }
     
+
+    public function get_by_id($id)
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>

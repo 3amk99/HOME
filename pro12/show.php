@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>   
+</body>
 <?php
 require_once "config.php" ;
 $category_list = $categories->read() ;
@@ -22,7 +31,7 @@ if(isset($_POST['button_submit']))
         let query = this.value;
         if(query.length > 0)
         {
-            fetch("show.php?search=" + encodeURIComponent(query))
+            fetch("search.php?search=" + encodeURIComponent(query))
             .then(response => response.text())
             .then(data => 
             {
@@ -69,30 +78,40 @@ if(isset($_POST['button_submit']))
 
 <a href=""></a>
 
+<div class="articles-grid">
+
 <?php
 if($id_selected_category != 0)
 {
     $box_category_articles = $article->read_By_category($id_selected_category);
     foreach($box_category_articles as $a )
     {
-      echo "<h3>".$a['title']."</h3> <br>" ;
-      echo "<p>".$a['content']."</p>" ;
-      echo "<p>".$a['date']."</p>" ;
-      if(!empty($a['photo'])) 
-      {
-       echo "<img src='".$a['photo']."' width='100'><hr>";
-      }
-      echo "
-      <button>
-        <a href='delete.php?value=".$a['id']."' >delete</a>
-      </button>";
-      echo "
-      <button>
-        <a href='update.php?value_update=".$a['id']."' >update</a>
-      </button>";
+        echo "<div class='article-card'>";
+
+        echo "<h3>".$a['title']."</h3>";
+        echo "<p>".$a['content']."</p>";
+        echo "<p>".$a['date']."</p>";
+
+        if(!empty($a['photo'])) 
+        {
+            echo "<img src='".$a['photo']."' width='100'>";
+        }
+
+        echo "
+        <button><a href='delete.php?value=".$a['id']."'>delete</a></button>";
+
+        echo "
+        <button><a href='update.php?value_update=".$a['id']."'>update</a></button>";
+
+        echo "
+        <button><a href='SINGLE-ARTICLE.php?id=".$a['id']."'>view</a></button>";
+
+        echo "</div>";
     }
 }
 ?>
+
+</div>
 
 
 
@@ -120,14 +139,19 @@ if(isset($_GET['search']))
             {
                 echo "<img src='".$a['photo']."' width='100'><hr>";
             }
-            echo "
-            <button>
-                <a href='delete.php?value=".$a['id']."' >delete</a>
-            </button>";
-            echo "
-            <button>
-                <a href='update.php?value_update=".$a['id']."' >update</a>
-            </button>";
+                    echo "
+                    <button>
+                        <a href='delete.php?value=".$a['id']."' >delete</a>
+                    </button>";
+                    echo "
+                    <button>
+                        <a href='update.php?value_update=".$a['id']."' >update</a>
+                    </button>";
+                    
+                    echo "
+                    <button>
+                        <a href='SINGLE-ARTICLE.php?id=".$a['id']."'>view</a>
+                    </button>";
         }
     } 
     else
@@ -136,3 +160,5 @@ if(isset($_GET['search']))
     }
 }
 ?>
+</body>
+</html>
