@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badreddine Hammam | Developer</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #0a0a0a, #111);
+    color: #eee;
+    overflow-x: hidden;
+}
+
+/* ===== NAV ===== */
+nav {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
+}
+
+nav h1 {
+    color: #00ffcc;
+}
+
+nav a {
+    color: #aaa;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00ffcc;
+}
+
+/* ===== HERO ===== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.hero h2 {
+    font-size: 55px;
+}
+
+.hero span {
+    color: #00ffcc;
+}
+
+.hero p {
+    margin-top: 20px;
+    max-width: 600px;
+    color: #aaa;
+}
+
+/* typing cursor */
+.cursor {
+    display: inline-block;
+    background: #00ffcc;
+    width: 2px;
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    margin-top: 25px;
+    padding: 12px 22px;
+    background: linear-gradient(45deg, #00ffcc, #00cc99);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== SECTION ===== */
+section {
+    padding: 100px 40px;
+}
+
+/* ===== TITLES ===== */
+h3 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00ffcc;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(255,255,255,0.03);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #00ffcc;
+}
+
+/* ===== PROJECT TEXT ===== */
+.project-title {
+    color: #00ffcc;
+    margin-bottom: 10px;
+}
+
+.project-desc {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* CONTACT FORM */
+.contact-form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: none;
+    background: #1a1a1a;
+    color: #eee;
+    border-radius: 6px;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>Badreddine</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h2>Hello, I'm <span>Badreddine Hammam</span></h2>
+    <p id="typing"></p>
+    <button class="btn" onclick="motivate()">Motivate Me</button>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+    <h3>About Me</h3>
+    <p>
+        I build real applications using C, Linux, and Web technologies.
+        My focus is on backend systems, APIs, and structured logic.
+        I train daily with discipline to reach a high engineering level.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="hidden">
+    <h3>Skills</h3>
+    <div class="grid">
+        <div class="card">C Programming</div>
+        <div class="card">Linux</div>
+        <div class="card">JavaScript</div>
+        <div class="card">PHP & MySQL</div>
+        <div class="card">API Integration</div>
+        <div class="card">System Logic</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="hidden">
+    <h3>Projects</h3>
+    <div class="grid">
+
+        <div class="card">
+            <div class="project-title">Blog System</div>
+            <div class="project-desc">Multi-user blog with auth, likes, comments, dashboard.</div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Weather App</div>
+            <div class="project-desc">Real-time weather using API integration.</div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">API Store</div>
+            <div class="project-desc">Consumes and structures multiple APIs.</div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Online Library</div>
+            <div class="project-desc">Book management system with database.</div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Comment Organizer</div>
+            <div class="project-desc">Stores comments with names and timestamps.</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="hidden">
+    <h3>Contact Me</h3>
+
+    <!-- FIX: Use Formspree to handle the email delivery -->
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="contact-form">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Badreddine Hammam — Discipline > Motivation</p>
+</footer>
+
+<script>
+/* ===== TYPING EFFECT ===== */
+const text = "Backend-focused developer building real-world systems.";
+let i = 0;
+
+function typingEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 40);
+    }
+}
+typingEffect();
+
+/* ===== MOTIVATION ===== */
+function motivate() {
+    const msgs = ["Stay Hard 🔥","No excuses.","You vs You.","Keep building.","Discipline wins."];
+    // Target the specific span so your name doesn't disappear
+    document.querySelector(".hero h2 span").innerText =
+        msgs[Math.floor(Math.random() * msgs.length)];
+}
+
+/* ===== SCROLL ANIMATION ===== */
+const elements = document.querySelectorAll(".hidden");
+
+window.addEventListener("scroll", () => {
+    elements.forEach(el => {
+        const pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body> template_6lqx0fk      p0YO5V8qBDtoBkDtf
+</html>service_o9ydvln

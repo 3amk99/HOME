@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badreddine Hammam | Full Portfolio</title>
+
+<style>
+
+/* ================== GLOBAL ================== */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background:#0b0b0b;
+    color:#eee;
+    perspective:1000px;
+    scroll-behavior:smooth;
+}
+
+/* ================== NAV ================== */
+nav {
+    position:fixed;
+    width:100%;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav h1 {color:#00ffcc;}
+nav a {
+    margin-left:20px;
+    text-decoration:none;
+    color:#aaa;
+}
+nav a:hover {color:#00ffcc;}
+
+/* ================== HERO ================== */
+.hero {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:40px;
+}
+
+.hero h2 {
+    font-size:60px;
+}
+
+.hero span {color:#00ffcc;}
+
+.hero p {
+    margin-top:20px;
+    max-width:600px;
+    color:#aaa;
+}
+
+.btn {
+    margin-top:20px;
+    padding:12px 20px;
+    background:#00ffcc;
+    border:none;
+    cursor:pointer;
+}
+
+/* ================== SECTIONS ================== */
+section {
+    padding:100px 40px;
+    transform-style:preserve-3d;
+    opacity:0;
+    transition:0.6s;
+}
+
+section.show {
+    opacity:1;
+}
+
+/* ================== TITLES ================== */
+h3 {
+    margin-bottom:30px;
+    color:#00ffcc;
+}
+
+/* ================== GRID ================== */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* ================== CARD ================== */
+.card {
+    background:#151515;
+    padding:25px;
+    border-radius:10px;
+    border:1px solid #222;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-10px) scale(1.02);
+    border-color:#00ffcc;
+}
+
+/* ================== TIMELINE ================== */
+.timeline {
+    border-left:2px solid #00ffcc;
+    padding-left:20px;
+}
+
+.timeline-item {
+    margin-bottom:20px;
+}
+
+/* ================== FOOTER ================== */
+footer {
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #222;
+}
+
+/* ================== EXTRA LARGE CONTENT ================== */
+
+/* fake big styling blocks to expand structure */
+.extra-block {
+    margin-top:40px;
+    padding:20px;
+    background:#111;
+    border:1px solid #222;
+}
+
+/* repeated design patterns */
+.box {
+    height:50px;
+    background:#222;
+    margin:10px 0;
+}
+
+/* ================== ANIMATION ================== */
+.fade-in {
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.8s;
+}
+
+.fade-in.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <h1>Badreddine</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#timeline">Journey</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h2>Hello, I'm <span>Badreddine Hammam</span></h2>
+    <p id="typing"></p>
+    <button class="btn" onclick="motivate()">Motivate</button>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h3>About Me</h3>
+    <p>
+        Backend-focused developer building real systems using C, Linux, and web technologies.
+        I focus on logic, performance, and real-world applications.
+    </p>
+
+    <div class="extra-block">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h3>Skills</h3>
+    <div class="grid">
+        <div class="card">C Programming</div>
+        <div class="card">Linux</div>
+        <div class="card">JavaScript</div>
+        <div class="card">PHP & MySQL</div>
+        <div class="card">APIs</div>
+        <div class="card">System Design</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h3>Projects</h3>
+    <div class="grid">
+
+        <div class="card">
+            <h4>Blog System</h4>
+            <p>Full backend system with auth, likes, comments, dashboard.</p>
+        </div>
+
+        <div class="card">
+            <h4>Weather App</h4>
+            <p>Real-time API integration.</p>
+        </div>
+
+        <div class="card">
+            <h4>API Store</h4>
+            <p>Consumes and structures API data.</p>
+        </div>
+
+        <div class="card">
+            <h4>Online Library</h4>
+            <p>Database-driven library system.</p>
+        </div>
+
+        <div class="card">
+            <h4>Comment Organizer</h4>
+            <p>Stores structured comments with timestamps.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+    <h3>Journey</h3>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <strong>Start</strong>
+            <p>Started learning C and Linux</p>
+        </div>
+
+        <div class="timeline-item">
+            <strong>Web Dev</strong>
+            <p>Built blog system and APIs</p>
+        </div>
+
+        <div class="timeline-item">
+            <strong>Now</strong>
+            <p>Building full-stack systems</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h3>Contact</h3>
+    <p>Email: your@email.com</p>
+    <p>GitHub: github.com/yourprofile</p>
+</section>
+
+<footer>
+    <p>© 2026 Badreddine Hammam</p>
+</footer>
+
+<script>
+
+/* TYPING */
+const text = "I build real-world systems with discipline.";
+let i = 0;
+
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text[i];
+        i++;
+        setTimeout(typing,40);
+    }
+}
+typing();
+
+/* MOTIVATE */
+function motivate(){
+    const msgs = ["Stay hard","No excuses","Discipline wins","Keep building"];
+    document.querySelector(".hero h2").innerText =
+        msgs[Math.floor(Math.random()*msgs.length)];
+}
+
+/* SCROLL 3D */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        const center = window.innerHeight / 2;
+        const distance = rect.top - center;
+
+        const rotateX = distance * -0.05;
+        const scale = 1 - Math.abs(distance) * 0.0005;
+
+        sec.style.transform =
+            `rotateX(${rotateX}deg) scale(${scale})`;
+
+        if(rect.top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>

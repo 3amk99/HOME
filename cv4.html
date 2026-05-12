@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badreddine Hammam | Developer</title>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #0a0a0a, #111);
+    color: #eee;
+    overflow-x: hidden;
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 1000;
+}
+
+nav h1 { color: #00ffcc; }
+nav a { color: #aaa; margin-left: 20px; text-decoration: none; transition: 0.3s; }
+nav a:hover { color: #00ffcc; }
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.hero h2 { font-size: 55px; }
+.hero span { color: #00ffcc; }
+.hero p { margin-top: 20px; max-width: 600px; color: #aaa; min-height: 24px;}
+
+
+.btn {
+    margin-top: 25px;
+    padding: 12px 22px;
+    background: linear-gradient(45deg, #00ffcc, #00cc99);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+
+section { padding: 100px 40px; }
+h3 { margin-bottom: 30px; font-size: 28px; color: #00ffcc; }
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.03);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #00ffcc;
+}
+
+.project-title { color: #00ffcc; margin-bottom: 10px; }
+.project-desc { color: #aaa; font-size: 14px; }
+
+
+.contact-form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: none;
+    background: #1a1a1a;
+    color: #eee;
+    border-radius: 6px;
+}
+
+.contact-form textarea { min-height: 120px; }
+
+footer { text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+
+.hidden { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h1>Badreddine</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <h2>Hello, I'm <span>Badreddine Hammam</span></h2>
+    <p id="typing"></p>
+    <button class="btn" onclick="motivate()">Motivate Me</button>
+</div>
+
+
+<section id="about" class="hidden">
+    <h3>About Me</h3>
+    <p>
+        I build real applications using C, Linux, and Web technologies.
+        My focus is on backend systems, APIs, and structured logic.
+        I train daily with discipline to reach a high engineering level.
+    </p>
+</section>
+
+
+<section id="skills" class="hidden">
+    <h3>Skills</h3>
+    <div class="grid">
+        <div class="card">C Programming</div>
+        <div class="card">Linux</div>
+        <div class="card">JavaScript</div>
+        <div class="card">PHP & MySQL</div>
+        <div class="card">API Integration</div>
+        <div class="card">System Logic</div>
+    </div>
+</section>
+
+
+<section id="projects" class="hidden">
+    <h3>Projects</h3>
+    <div class="grid">
+        <div class="card">
+            <div class="project-title">Blog System</div>
+            <div class="project-desc">Multi-user blog with auth, likes, comments, dashboard.</div>
+        </div>
+        <div class="card">
+            <div class="project-title">Weather App</div>
+            <div class="project-desc">Real-time weather using API integration.</div>
+        </div>
+        <div class="card">
+            <div class="project-title">API Store</div>
+            <div class="project-desc">Consumes and structures multiple APIs.</div>
+        </div>        
+    </div>
+    
+  
+    <h3>Projects & Achievements</h3>
+    <div class="grid">
+       
+        <div class="card">
+            <div class="project-title">Online Library System</div>
+            <div class="project-desc">
+                A full-featured library management system. Handles book tracking, user accounts, and borrowing logic. Built with focus on structured data and clean backend flow.
+            </div>
+        </div>
+
+      
+        <div class="card">
+            <div class="project-title">1337 (42 Network) C-Piscine</div>
+            <div class="project-desc">
+                Completed **45 intensive C programming problems** (C00 to C08). Includes memory allocation, pointers, file descriptors, and algorithm logic. Built from scratch without standard libraries.
+            </div>
+        </div>
+
+       
+        <div class="card">
+            <div class="project-title">1337 Exam Mastery</div>
+            <div class="project-desc">
+                Solved **30 complex exam-level problems** under strict time limits. Focused on low-level manipulation, data structures, and optimized problem-solving in the C language.
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="contact" class="hidden">
+    <h3>Contact Me</h3>
+    <form id="contact-form" class="contact-form">
+        
+        <input type="email" name="from_email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn" id="send-btn">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Badreddine Hammam — Discipline > Motivation</p>
+</footer>
+
+<script>
+
+(function() {
+ 
+    emailjs.init("p0YO5V8qBDtoBkDtf"); 
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const btn = document.getElementById('send-btn');
+    btn.innerText = 'Sending...';
+
+  
+    emailjs.sendForm('service_f37crw9', 'template_7jzk8df', this)
+        .then(function() {
+            alert('Success! Your message has been sent.');
+            btn.innerText = 'Send Message';
+            document.getElementById('contact-form').reset();
+        }, function(error) {
+            alert('Oops! Sending failed. Check your keys.');
+            console.error('FAILED...', error);
+            btn.innerText = 'Send Message';
+        });
+});
+
+
+const text = "Backend-focused developer building real-world systems.";
+let i = 0;
+function typingEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 40);
+    }
+}
+typingEffect();
+
+
+function motivate() {
+    const msgs = ["Stay Hard 🔥","No excuses.","You vs You.","Keep building.","Discipline wins."];
+    document.querySelector(".hero h2 span").innerText = msgs[Math.floor(Math.random() * msgs.length)];
+}
+
+
+const elements = document.querySelectorAll(".hidden");
+window.addEventListener("scroll", () => {
+    elements.forEach(el => {
+        const pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

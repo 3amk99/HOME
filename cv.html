@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badreddine Hammam | Developer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #eee;
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    border-bottom: 1px solid #222;
+    z-index: 1000;
+}
+
+nav h1 {
+    color: #00ffcc;
+}
+
+nav a {
+    color: #ccc;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #00ffcc;
+}
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.hero h2 {
+    font-size: 55px;
+}
+
+.hero span {
+    color: #00ffcc;
+}
+
+.hero p {
+    margin-top: 20px;
+    max-width: 600px;
+    color: #aaa;
+}
+
+.btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background: #00ffcc;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #00cc99;
+}
+
+
+section {
+    padding: 80px 40px;
+}
+
+h3 {
+    margin-bottom: 30px;
+    color: #00ffcc;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid #222;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #00ffcc;
+}
+
+
+.project-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00ffcc;
+}
+
+.project-desc {
+    font-size: 14px;
+    color: #aaa;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    border-top: 1px solid #222;
+}
+
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+
+<nav>
+    <h1>Badreddine</h1>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <h2>Hello, I'm <span>Badreddine Hammam</span></h2>
+    <p>
+        Developer focused on building real systems using C, Linux, and Web Technologies.
+        I create practical applications with authentication, APIs, and structured logic.
+    </p>
+    <button class="btn" onclick="motivate()">Motivate Me</button>
+</div>
+
+
+<section id="about" class="hidden">
+    <h3>About Me</h3>
+    <p>
+        I am a disciplined developer who studies programming intensively every day.
+        My focus is on mastering low-level programming (C), understanding Linux systems,
+        and building complete web applications with backend logic and databases.
+    </p>
+</section>
+
+
+<section id="skills" class="hidden">
+    <h3>Skills</h3>
+    <div class="grid">
+        <div class="card">C Programming</div>
+        <div class="card">Linux</div>
+        <div class="card">HTML / CSS</div>
+        <div class="card">JavaScript</div>
+        <div class="card">PHP & MySQL</div>
+        <div class="card">API Integration</div>
+    </div>
+</section>
+
+
+<section id="projects" class="hidden">
+    <h3>Projects</h3>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="project-title">Blog System</div>
+            <div class="project-desc">
+                Multi-user platform with authentication, articles, likes, comments, and dashboard.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Weather App</div>
+            <div class="project-desc">
+                Fetches real-time weather data using external API and displays dynamic results.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">API Store</div>
+            <div class="project-desc">
+                Application that consumes APIs and organizes data for practical use.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Online Library</div>
+            <div class="project-desc">
+                System to manage books and users with structured database logic.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">Comment Organizer</div>
+            <div class="project-desc">
+                App to store comments with timestamps and names, organized efficiently.
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="project-title">C Projects</div>
+            <div class="project-desc">
+                Custom implementations of core functions and algorithms in C.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<footer>
+    <p>© 2026 Badreddine Hammam — Built with discipline.</p>
+</footer>
+
+<script>
+function motivate() {
+    const msgs = [
+        "Stay Hard 🔥",
+        "No excuses.",
+        "You vs You.",
+        "Discipline wins.",
+        "Keep building."
+    ];
+    document.querySelector(".hero h2").innerText =
+        msgs[Math.floor(Math.random() * msgs.length)];
+}
+
+
+const elements = document.querySelectorAll(".hidden");
+
+window.addEventListener("scroll", () => {
+    elements.forEach(el => {
+        const pos = el.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+            el.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
