@@ -36,10 +36,10 @@ class SchoolClass
 
 
 
-    public function get_By_id_Box($id) 
+    public function get_By_id_Box($box_id) 
     {
-        $stmt = $this->conn->prepare("SELECT * FROM {$this->table} WHERE :id = id");
-        $stmt->execute(["id" => $id]);
+        $stmt = $this->conn->prepare("SELECT * FROM {$this->table} WHERE box_id = :box_id");
+        $stmt->execute(["box_id" => $box_id]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

@@ -42,4 +42,32 @@ class Student {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+public function getByClass($class_id)
+{
+    $query = "
+                SELECT
+                    students.*,
+                    classes.name AS class_name,
+                    boxes.name AS box_name
+
+                FROM students
+
+                JOIN classes
+                ON students.class_id = classes.id
+
+                JOIN boxes
+                ON classes.box_id = boxes.id
+
+                WHERE students.class_id = :class_id
+            ";
+
+    $stmt = $this->conn->prepare($query);
+
+    $stmt->execute([
+        ":class_id" => $class_id
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }

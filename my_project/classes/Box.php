@@ -17,10 +17,32 @@ class Box
         return $stmt->execute([":name" => $name]);
     }
 
-    public function getAll() 
+    public function getAll()
     {
         $stmt = $this->conn->prepare("SELECT * FROM boxes");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($id)
+    {  
+        $stmt = $this->conn->prepare("
+            DELETE students FROM students
+            JOIN classes ON students.class_id = classes.id
+            WHERE classes.box_id = :id
+                                    ");
+        $stmt->execute([":id" => $id]);
+
+       
+        $stmt = $this->conn->prepare("
+            DELETE FROM classes WHERE box_id = :id
+        ");
+        $stmt->execute([":id" => $id]);
+
+
+        $stmt = $this->conn->prepare("
+            DELETE FROM boxes WHERE id = :id
+        ");
+        return $stmt->execute([":id" => $id]);
     }
 }

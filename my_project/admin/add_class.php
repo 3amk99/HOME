@@ -13,15 +13,15 @@ if (isset($_POST['button_schoolclass']))
 
     <select name="box_id">
 
-    <?php foreach ($boxes_result as $b) { ?>
+        <?php foreach ($boxes_result as $b) { ?>
 
-        <option value="<?php echo $b['id']; ?>"> 
+            <option value="<?php echo $b['id']; ?>"> 
 
-            <?php echo $b['name']; ?>
+                <?php echo $b['name']; ?>
 
-        </option>
+            </option>
 
-    <?php } ?>
+        <?php } ?>
 
     </select>
 
