@@ -1,0 +1,120 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #0f0f0f;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* ===== PAGE FLEX ===== */
+#page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== TITLE ===== */
+#title {
+    color: #00ff66;
+    text-align: center;
+}
+
+/* ===== BACK LINK ===== */
+#back-link {
+    color: #00ff66;
+    text-decoration: none;
+    border: 1px solid #00ff66;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#back-link:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== USER SELECT FORM ===== */
+#user-select-form {
+    background-color: #1b1b1b;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #1f7a1f;
+}
+
+/* ===== SELECT ===== */
+#user-select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #1f7a1f;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+/* ===== ASSIGN FORM ===== */
+#assign-form {
+    background-color: #1b1b1b;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    border: 2px solid #1f7a1f;
+}
+
+/* ===== CLASS LIST ===== */
+#class-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== CLASS ITEM ===== */
+.class-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ===== SAVE BUTTON ===== */
+#save-btn {
+    padding: 12px;
+    background-color: #1f7a1f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#save-btn:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== HINT TEXT ===== */
+#hint {
+    color: #aaa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    #assign-form {
+        width: 95%;
+    }
+}

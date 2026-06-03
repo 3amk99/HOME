@@ -1,0 +1,116 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #0f0f0f; /* black */
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* ===== MAIN CONTAINER (FLEX CENTER) ===== */
+#container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== FORM (GRID INSIDE) ===== */
+#form-box {
+    background-color: #1b1b1b; /* dark black */
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    border: 2px solid #1f7a1f; /* dark green */
+}
+
+/* ===== TITLE ===== */
+#title {
+    text-align: center;
+    color: #00ff66; /* green */
+}
+
+/* ===== INPUT ===== */
+#input-name,
+#select-box {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #1f7a1f;
+    background-color: #0f0f0f;
+    color: white;
+    outline: none;
+}
+
+/* focus effect */
+#input-name:focus,
+#select-box:focus {
+    border-color: #00ff66;
+}
+
+/* ===== BUTTON ===== */
+#btn-add {
+    padding: 12px;
+    background-color: #1f7a1f; /* dark green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btn-add:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== RETURN BUTTON ===== */
+#btn-return {
+    color: #00ff66;
+    text-decoration: none;
+    border: 1px solid #00ff66;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#btn-return:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+#success-message {
+    background-color: #1f7a1f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    #form-box {
+        width: 95%;
+    }
+
+    #btn-add,
+    #input-name,
+    #select-box {
+        font-size: 14px;
+    }
+}

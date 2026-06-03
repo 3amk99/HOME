@@ -1,0 +1,112 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #4e4e4e; /* black */
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* ===== MAIN CONTAINER (FLEX CENTER) ===== */
+#container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== FORM BOX (GRID INSIDE) ===== */
+#box-form {
+    background-color: #1b1b1b; /* dark black */
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    border: 2px solid #1f7a1f; /* dark green border */
+}
+
+/* ===== TITLE ===== */
+#title {
+    text-align: center;
+    color: #00ff66; /* green */
+    margin-bottom: 10px;
+}
+
+/* ===== INPUT ===== */
+#box-name {
+    padding: 12px;
+    border: 2px solid #1f7a1f;
+    border-radius: 8px;
+    background-color: #0f0f0f;
+    color: white;
+    outline: none;
+}
+
+#box-name:focus {
+    border-color: #00ff66;
+}
+
+/* ===== BUTTON ===== */
+#add-button {
+    padding: 12px;
+    background-color: #1f7a1f; /* dark green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#add-button:hover {
+    background-color: #00ff66; /* bright green */
+    color: black;
+}
+
+/* ===== RETURN LINK ===== */
+#return-link {
+    color: #00ff66;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid #00ff66;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#return-link:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== SUCCESS MESSAGE ===== */
+#success-message {
+    background-color: #1f7a1f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+/* ===== RESPONSIVE (PHONE) ===== */
+@media (max-width: 600px) {
+    #box-form {
+        width: 95%;
+    }
+
+    #add-button,
+    #box-name {
+        font-size: 14px;
+    }
+}

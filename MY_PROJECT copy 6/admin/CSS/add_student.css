@@ -1,0 +1,117 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #0f0f0f;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* ===== PAGE CENTER ===== */
+#page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== FORM ===== */
+#student-form {
+    background-color: #1b1b1b;
+    padding: 25px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    border: 2px solid #1f7a1f;
+}
+
+/* ===== INPUTS ===== */
+#input-name,
+#input-photo,
+#select-class {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #1f7a1f;
+    background-color: #0f0f0f;
+    color: white;
+    outline: none;
+}
+
+/* focus */
+#input-name:focus,
+#select-class:focus {
+    border-color: #00ff66;
+}
+
+/* file input */
+#input-photo {
+    cursor: pointer;
+}
+
+/* ===== BUTTON ===== */
+#btn-add {
+    padding: 12px;
+    background-color: #1f7a1f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btn-add:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== RETURN ===== */
+#btn-return {
+    color: #00ff66;
+    text-decoration: none;
+    border: 1px solid #00ff66;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#btn-return:hover {
+    background-color: #00ff66;
+    color: black;
+}
+
+/* ===== SUCCESS ===== */
+#success-message {
+    background-color: #1f7a1f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+    #student-form {
+        width: 95%;
+    }
+
+    #btn-add,
+    #input-name,
+    #input-photo,
+    #select-class {
+        font-size: 14px;
+    }
+}
